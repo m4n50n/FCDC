@@ -4,7 +4,7 @@ services:
     image: nginx:1-alpine
     volumes:
       - ../www:/var/www/html
-      - ./config/nginx/sites-available/:/etc/nginx/conf.d
+      - ./config/nginx:/etc/nginx/conf.d
     ports:
       - 8080:80
     working_dir: /var/www/html

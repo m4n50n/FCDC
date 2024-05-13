@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  nginx:
+    image: nginx:1-alpine
+    volumes:
+      - ../www:/var/www/html
+      - ./config/nginx/sites-available/:/etc/nginx/conf.d
+    ports:
+      - 8080:80
+    working_dir: /var/www/html
+    restart: unless-stopped
+
+  php_8_2_symfony:
+    image: m4n50n/fcdc_symfony_php_8_2      
+    volumes:
+      - ../www:/var/www/html
+    working_dir: /var/www/html      
+    restart: unless-stopped
+    
